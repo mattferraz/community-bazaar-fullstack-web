@@ -4,15 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @AllArgsConstructor
-public class ProductsBatch {
+public class BusinessHour {
     private Integer id;
-    private String note;
-    private LocalDateTime deliveryDate;
-    private SupervisoryOrgan supervisoryOrgan;
+    private int weekday;
+    private int openTime;
+    private int closeTime;
     private DoneeInstitution doneeInstitution;
 }

@@ -7,11 +7,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Product {
-    private Integer id;
+public class Administrator {
+    private int id;
     private String name;
-    private String brand;
-    private String category;
-    private String description;
-    private ProductsBatch productsBatch;
+    private String email;
+    private String password;
 }
