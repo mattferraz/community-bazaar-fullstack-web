@@ -57,17 +57,12 @@ public class ProductService {
 
     @Transactional
     public void updateProduct(Integer id, ProductDto newProductDto) {
-        Product product = productRepository
-                .findById(id)
-                .orElseThrow(() -> new DataNotFoundException("Product not found with id: " + id));
-
-        Integer productsBatchId = newProductDto.getProductsBatchDTO().getId();
-        if (productsBatchRepository.findById(productsBatchId).isPresent()) {
+        if (productRepository.findById(id).isPresent()) {
             Product newProduct = productMapper.dtoToEntity(newProductDto);
-            product.setId(id);
-            productRepository.update(product);
+            newProduct.setId(id);
+            productRepository.update(newProduct);
         } else {
-            throw new DataNotFoundException("Products batch not found with id: " + productsBatchId);
+            throw new DataNotFoundException("Product not found with id: " + id);
         }
     }
 

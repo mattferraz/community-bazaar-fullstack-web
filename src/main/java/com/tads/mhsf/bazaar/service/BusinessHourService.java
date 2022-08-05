@@ -55,7 +55,7 @@ public class BusinessHourService {
                 .findById(id)
                 .orElseThrow(() -> new DataNotFoundException("Business hour not found with id: " + id));
 
-        if (businessHour.getDoneeInstitution().getId() == doneeInstitutionId) {
+        if (businessHour.getDoneeInstitution().getId().equals(doneeInstitutionId)) {
             BusinessHour newBusinessHour = businessHourMapper.dtoToEntity(businessHourDto);
             newBusinessHour.setId(id);
             businessHoursRepository.update(newBusinessHour);
@@ -71,7 +71,7 @@ public class BusinessHourService {
                 .findById(id)
                 .orElseThrow(() -> new DataNotFoundException("Business hour not found with id: " + id));
 
-        if (businessHour.getDoneeInstitution().getId() == doneeInstitutionId) {
+        if (businessHour.getDoneeInstitution().getId().equals(doneeInstitutionId)) {
             businessHoursRepository.deleteById(id);
         } else {
             throw new DataNotFoundException("Donee institution with id " + doneeInstitutionId +

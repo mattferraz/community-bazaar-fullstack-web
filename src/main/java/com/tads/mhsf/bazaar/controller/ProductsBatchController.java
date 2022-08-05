@@ -1,5 +1,6 @@
 package com.tads.mhsf.bazaar.controller;
 
+import com.tads.mhsf.bazaar.dto.ProductDto;
 import com.tads.mhsf.bazaar.dto.ProductsBatchDto;
 import com.tads.mhsf.bazaar.service.ProductsBatchService;
 import org.springframework.http.ResponseEntity;
@@ -45,6 +46,11 @@ public class ProductsBatchController {
     @GetMapping
     public ResponseEntity<List<ProductsBatchDto>> findAllProductsBatches() {
         return ResponseEntity.ok(productsBatchService.findAllProductsBatch());
+    }
+
+    @GetMapping("/{id}/products")
+    public ResponseEntity<List<ProductDto>> findAllProductsFromProductsBatchById(@PathVariable Integer id) {
+        return ResponseEntity.ok(productsBatchService.findAllProductsFromProductBatchById(id));
     }
 
     @PutMapping("/{id}")

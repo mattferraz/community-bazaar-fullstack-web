@@ -15,12 +15,13 @@ import java.util.List;
 @Service
 public class SupervisoryOrganService {
 
-    private final SupervisoryOrganRepository supervisoryOrganRepository;
     private final SupervisoryOrganMapper supervisoryOrganMapper;
+    private final SupervisoryOrganRepository supervisoryOrganRepository;
 
-    public SupervisoryOrganService(SupervisoryOrganRepository supervisoryOrganRepository, SupervisoryOrganMapper supervisoryOrganMapper) {
-        this.supervisoryOrganRepository = supervisoryOrganRepository;
+    public SupervisoryOrganService(SupervisoryOrganMapper supervisoryOrganMapper,
+                                   SupervisoryOrganRepository supervisoryOrganRepository) {
         this.supervisoryOrganMapper = supervisoryOrganMapper;
+        this.supervisoryOrganRepository = supervisoryOrganRepository;
     }
 
     @Transactional

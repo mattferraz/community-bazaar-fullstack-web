@@ -9,13 +9,10 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class AdministratorDto {
     private final Integer id;
-
     @NotBlank
     private final String name;
-
     @NotBlank
     private final String email;
-
     @NotBlank
     private final String password;
 }

@@ -1,9 +1,11 @@
 package com.tads.mhsf.bazaar.service;
 
+import com.tads.mhsf.bazaar.dto.ProductDto;
 import com.tads.mhsf.bazaar.dto.ProductsBatchDto;
 import com.tads.mhsf.bazaar.entity.ProductsBatch;
 import com.tads.mhsf.bazaar.exception.DataNotFoundException;
 import com.tads.mhsf.bazaar.exception.UnprocessableRequestException;
+import com.tads.mhsf.bazaar.mapper.ProductMapper;
 import com.tads.mhsf.bazaar.mapper.ProductsBatchMapper;
 import com.tads.mhsf.bazaar.repository.ProductRepository;
 import com.tads.mhsf.bazaar.repository.ProductsBatchRepository;
@@ -17,13 +19,16 @@ import java.util.List;
 @Service
 public class ProductsBatchService {
 
+    private final ProductMapper productMapper;
     private final ProductRepository productRepository;
     private final ProductsBatchMapper productsBatchMapper;
     private final ProductsBatchRepository productsBatchRepository;
 
-    public ProductsBatchService(ProductRepository productRepository,
+    public ProductsBatchService(ProductMapper productMapper,
+                                ProductRepository productRepository,
                                 ProductsBatchMapper productsBatchMapper,
                                 ProductsBatchRepository productsBatchRepository) {
+        this.productMapper = productMapper;
         this.productRepository = productRepository;
         this.productsBatchMapper = productsBatchMapper;
         this.productsBatchRepository = productsBatchRepository;
@@ -50,6 +55,15 @@ public class ProductsBatchService {
                 .findAll()
                 .stream()
                 .map(productsBatchMapper::entityToDto)
+                .toList();
+    }
+
+    @Transactional
+    public List<ProductDto> findAllProductsFromProductBatchById(Integer id) {
+        return productRepository
+                .findAllProductsFromBatchById(id)
+                .stream()
+                .map(productMapper::entityToDto)
                 .toList();
     }
 

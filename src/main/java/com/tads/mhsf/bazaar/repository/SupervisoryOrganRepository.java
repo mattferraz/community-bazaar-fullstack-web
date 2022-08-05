@@ -3,9 +3,7 @@ package com.tads.mhsf.bazaar.repository;
 import com.tads.mhsf.bazaar.dao.ConnectionManager;
 import com.tads.mhsf.bazaar.entity.SupervisoryOrgan;
 import com.tads.mhsf.bazaar.exception.RepositoryException;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

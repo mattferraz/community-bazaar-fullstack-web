@@ -9,10 +9,7 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class SupervisoryOrganDto {
     private final Integer id;
-
     @NotBlank
     private final String name;
-
-    @NotBlank
     private final String description;
 }

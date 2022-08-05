@@ -11,15 +11,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class ProductsBatchDto {
     private final Integer id;
-
-    @NotBlank
     private final String note;
-
     @NotBlank
     private final LocalDateTime deliveryDate;
-
     @NotNull
     private final SupervisoryOrganDto supervisoryOrganDTO;
-
     private final DoneeInstitutionDto doneeInstitutionDTO;
 }
