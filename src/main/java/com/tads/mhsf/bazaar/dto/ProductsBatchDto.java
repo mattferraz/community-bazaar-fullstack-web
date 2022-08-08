@@ -3,7 +3,6 @@ package com.tads.mhsf.bazaar.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
@@ -12,7 +11,7 @@ import java.time.LocalDateTime;
 public class ProductsBatchDto {
     private final Integer id;
     private final String note;
-    @NotBlank
+    @NotNull
     private final LocalDateTime deliveryDate;
     @NotNull
     private final SupervisoryOrganDto supervisoryOrganDTO;

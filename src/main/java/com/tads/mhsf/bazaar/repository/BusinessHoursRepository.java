@@ -70,6 +70,7 @@ public class BusinessHoursRepository implements CrudRepository<BusinessHour, Int
             pstm.setInt(2, businessHour.getWeekday());
             pstm.setInt(3, businessHour.getOpenTime());
             pstm.setInt(4, businessHour.getCloseTime());
+            pstm.setInt(5, businessHour.getId());
             pstm.executeUpdate();
             pstm.close();
         } catch (SQLException e) {
